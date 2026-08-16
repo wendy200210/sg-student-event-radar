@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "onboarding_complete": false,
+  "timezone": "Asia/Singapore",
+  "student_profile": {
+    "education_stage": "",
+    "graduation_date": "",
+    "career_stage": [],
+    "institutions": []
+  },
+  "focus": {
+    "industries": [],
+    "fields": [],
+    "target_roles": [],
+    "target_companies": [],
+    "skills": [],
+    "goals": [],
+    "exclude_topics": []
+  },
+  "constraints": {
+    "lookahead_days": 45,
+    "max_price_sgd": 50,
+    "daily_review_limit": 5,
+    "minimum_score": 6,
+    "languages": ["English"],
+    "online_policy": "allow_if_high_value",
+    "preferred_areas": [],
+    "schedule_constraints": [],
+    "exam_periods": []
+  },
+  "output": {
+    "mode": "local",
+    "notion_enabled": false
+  },
+  "sources": [
+    {
+      "id": "eventbrite_singapore",
+      "name": "Eventbrite Singapore",
+      "url": "https://www.eventbrite.sg/d/singapore/events/",
+      "cadence": "daily",
+      "enabled": true,
+      "category": "general_discovery"
+    },
+    {
+      "id": "luma_singapore",
+      "name": "Luma Singapore",
+      "url": "https://luma.com/singapore",
+      "cadence": "daily",
+      "enabled": true,
+      "category": "general_discovery"
+    },
+    {
+      "id": "meetup_singapore",
+      "name": "Meetup Singapore",
+      "url": "https://www.meetup.com/find/sg--singapore/",
+      "cadence": "daily",
+      "enabled": true,
+      "category": "general_discovery"
+    },
+    {
+      "id": "industry_dynamic_search",
+      "name": "Configured industry and field search",
+      "type": "websearch",
+      "queries": [
+        "Singapore {{industries}} {{fields}} event workshop networking register {{year}}",
+        "Singapore {{target_roles}} student industry event {{year}}"
+      ],
+      "cadence": "daily",
+      "enabled": true,
+      "requires_focus": true,
+      "category": "dynamic_industry"
+    },
+    {
+      "id": "target_organisation_search",
+      "name": "Target organisation events",
+      "type": "websearch",
+      "queries": [
+        "{{target_companies}} Singapore event open house workshop careers {{year}}"
+      ],
+      "cadence": "weekly",
+      "weekday": "Sunday",
+      "enabled": true,
+      "requires_target_companies": true,
+      "category": "target_organisation"
+    },
+    {
+      "id": "student_opportunity_search",
+      "name": "Singapore student opportunities",
+      "type": "websearch",
+      "queries": [
+        "Singapore university students {{industries}} competition challenge conference workshop {{year}}"
+      ],
+      "cadence": "weekly",
+      "weekday": "Sunday",
+      "enabled": true,
+      "category": "student_opportunity"
+    }
+  ]
+}

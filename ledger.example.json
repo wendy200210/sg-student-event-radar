@@ -1,0 +1,11 @@
+{
+  "_schema": "sg-student-event-radar-ledger-v1",
+  "last_run": null,
+  "events": {},
+  "source_state": {},
+  "preference_signals": {
+    "interested": [],
+    "considering": [],
+    "dismissed": []
+  }
+}

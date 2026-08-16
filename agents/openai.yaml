@@ -1,0 +1,4 @@
+interface:
+  display_name: "SG Student Event Radar"
+  short_description: "Personalized Singapore events for international students."
+  default_prompt: "Use $sg-student-event-radar to configure my interests and build a five-minute queue of worthwhile Singapore events."
