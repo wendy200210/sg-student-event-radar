@@ -37,6 +37,14 @@ for private_path in ["local/config.json", "local/ledger.json", "local/notion-sta
     if result.returncode != 0:
         errors.append(f"Not ignored: {private_path}")
 
+skill_status = subprocess.check_output(
+    ["git", "status", "--porcelain", "--untracked-files=all", "--", PREFIX],
+    cwd=REPO,
+    text=True
+).strip()
+if skill_status:
+    errors.append("Skill directory has uncommitted public changes")
+
 if errors:
     raise SystemExit("PUBLIC_RELEASE_BLOCKED\n" + "\n".join(f"- {error}" for error in errors))
 
